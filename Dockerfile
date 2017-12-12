@@ -6,7 +6,8 @@ USER root
 RUN sed -i 's/archive\.ubuntu/cn.archive.ubuntu/' /etc/apt/sources.list
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils && \
-    apt-get install -y libaio1
+    apt-get install -y libaio1 && \
+    apt-get install -y tzdata
 
 #install python3
 RUN apt-get install -y python3 
@@ -33,3 +34,4 @@ ENV SHLIB_PATH  /oracle/instantclient_12_2
 ENV LD_LIBRARY_PATH /oracle/instantclient_12_2
 ENV NLS_LANG american_america.zhs16gbk
 ENV NLS_DATE_FORMAT 'YYYY-MM-DD HH24:MI:SS'
+ENV TZ 'Asia/Shanghai'
